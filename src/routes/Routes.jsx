@@ -3,6 +3,7 @@ import Main from "../layouts/Main";
 import React from "react";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
+import ChefDetails from "../pages/ChefDetails/ChefDetails";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About/>
+            },
+            {
+                path: 'details/:id',
+                element: <ChefDetails/>
             }
         ]
     }
