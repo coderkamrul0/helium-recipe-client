@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
 
-  const {signInUser} = useContext(AuthContent);
+  const {signInUser, googleLogin} = useContext(AuthContent);
   const navigate = useNavigate();
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
@@ -33,6 +33,18 @@ export default function Login() {
       console.log(error);
     })
 
+  }
+
+  const handleGoogleLogin = () =>{
+    googleLogin()
+    .then(result => {
+      const user = result.user
+      navigate(from, {replace: true})
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
   return (
@@ -73,7 +85,7 @@ export default function Login() {
                           Login
                         </Button>
                         <div className='d-flex justify-content-between pt-3'>
-                            <button className='btn btn-primary'><FaGoogle/> Login With Google</button>
+                            <button onClick={handleGoogleLogin} className='btn btn-primary'><FaGoogle/> Login With Google</button>
                             <button className='btn btn-primary'><FaGithub/> Login With Github</button>
                         </div>
                       </div>

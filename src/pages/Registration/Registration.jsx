@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContent } from '../../Providers/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
@@ -11,6 +11,7 @@ export default function Registration() {
 
   const { createPasswordUser } = useContext(AuthContent);
   const [errors, setErrors] = useState([]);
+  const navigate = useNavigate();
 
 
   const handleRegister = event => {
@@ -43,6 +44,7 @@ export default function Registration() {
     createPasswordUser(email,password)
     .then((userCredential) => {
       const user = userCredential.user;
+      navigate('/')
       toast.success('Registration successful!');
       console.log(user);
     })
