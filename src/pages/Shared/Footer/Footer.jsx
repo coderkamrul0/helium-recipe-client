@@ -6,7 +6,7 @@ import { FaGithub,FaTwitter,FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div style={{backgroundColor: 'black'}}>
+    <div style={{backgroundColor: '#1D2024'}}>
         <Container>
       <footer className="footer-distributed">
         <div className="footer-left">

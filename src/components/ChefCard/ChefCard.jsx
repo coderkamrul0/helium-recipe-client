@@ -3,6 +3,8 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import { FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./ChefCard.css";
+import LazyLoad from 'react-lazy-load';
+
 
 const ChefCard = () => {
   const [chef, setChef] = useState([]);

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row, Table } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./ChefDetails.css";
 
+
 const ChefDetails = () => {
   const [chef, setChef] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/`)
@@ -18,6 +20,9 @@ const ChefDetails = () => {
   const { id } = useParams();
   console.log(id);
   const match = chef.find((c) => c.id === Number(id));
+  if(!match){
+    navigate('*')
+  }
 
   const handleAddToFavorites = (index) => {
     // Update the state of the clicked recipe card to indicate that it has been favorited

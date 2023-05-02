@@ -1,20 +1,19 @@
-import React, { useContext, useState } from 'react';
-import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { AuthContent } from '../../Providers/AuthProvider';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { AuthContent } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import './Registration.css'
 
 export default function Registration() {
-
-  const { createPasswordUser,googleLogin,githubLogin} = useContext(AuthContent);
+  const { createPasswordUser, googleLogin, githubLogin } =
+    useContext(AuthContent);
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
-
-  const handleRegister = event => {
+  const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -22,135 +21,125 @@ export default function Registration() {
     const password = form.password.value;
     const photo = form.photo.value;
 
-
-    
-
     // Validate input
-    if(!password || !name || !email || !photo){
-      setErrors('Please fill the from')
+    if (!password || !name || !email || !photo) {
+      setErrors("Please fill the from");
     }
     if (!email.trim()) {
-      setErrors('Eamil is required')
+      setErrors("Eamil is required");
     }
     if (!password.trim()) {
-      setErrors('password is required');
+      setErrors("password is required");
     }
     if (password.trim().length < 6) {
-      setErrors('Password must be at least 6 characters');
+      setErrors("Password must be at least 6 characters");
     }
-    
-    
 
-    createPasswordUser(email,password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      navigate('/')
-      toast.success('Registration successful!');
-      console.log(user);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-    });
-  }
+    createPasswordUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        navigate("/");
+        toast.success("Registration successful!");
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+      });
+  };
 
-
-
-  const handleGoogleLogin = () =>{
+  const handleGoogleLogin = () => {
     googleLogin()
-    .then(result => {
-      const user = result.user
-      navigate('/')
-      console.log(user);
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
+      .then((result) => {
+        const user = result.user;
+        navigate("/");
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleGithubLogin = () => {
     githubLogin()
-    .then(result => {
-      const user =result.user;
-      navigate('/')
-      console.log(user);
-    })
-    .catch(error => {
-      console.log(error);
-    })
-  }
+      .then((result) => {
+        const user = result.user;
+        navigate("/");
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
-    <div>
+    <div className="registration-form-background">
       <Container>
-        <Row className="vh-100 d-flex justify-content-center align-items-center">
-          <Col md={8} lg={6} xs={12}>
-            <Card className="px-4">
-              <Card.Body>
-                <div className="mb-3 mt-md-4">
-                  <h3 className="fw-bold mb-2 text-center text-uppercase ">
-                    Create Your Account
-                  </h3>
-                  <p className='text-center text-danger'><small>{errors}</small></p>
-                  <div className="mb-3">
-                    <Form onSubmit={handleRegister}>
-                      <Form.Group className="mb-3" controlId="Name">
-                        <Form.Label className="text-center">Name</Form.Label>
-                        <Form.Control name='name' type="text" placeholder="Enter Name" />
-                      </Form.Group>
+        <Form onSubmit={handleRegister} className="registration-form">
+          <h1 className="register-heading">Create Your Account</h1>
+          <p className="error-message"><small>{errors}</small></p>
+          <Form.Group controlId="formBasicName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter name"
+              name="name"
+            />
+          </Form.Group>
 
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="text-center">
-                          Email address
-                        </Form.Label>
-                        <Form.Control name='email' type="email" placeholder="Enter email" />
-                      </Form.Group>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              name="email"
+            />
+          </Form.Group>
 
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control name='password' type="password" placeholder="Password" />
-                      </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
-                        <Form.Label>Photo URL</Form.Label>
-                        <Form.Control name='photo' type="text" placeholder="Photo url" />
-                      </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicCheckbox"
-                      ></Form.Group>
-                      <div className="d-grid">
-                        <Button variant="primary" type="submit">
-                          Create Account
-                        </Button>
-                        <div className='mx-auto mt-3'>
-                            <button onClick={handleGoogleLogin} className='btn btn-primary'><FaGoogle/> Login With Google</button>
-                            <button onClick={handleGithubLogin} className='btn btn-primary'><FaGithub/> Login With Github</button>
-                        </div>
-                      </div>
-                    </Form>
-                    <div className="mt-3">
-                      <p className="mb-0  text-center">
-                        Already have an account??{' '}
-                        <Link to='/login' className="text-primary fw-bold">
-                          Sign In
-                        </Link>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Card.Body>
-              <ToastContainer/>
-            </Card>
-          </Col>
-        </Row>
+          <Form.Group controlId="formBasicPhotoUrl">
+            <Form.Label>Photo URL</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter photo URL"
+              name="photo"
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+            />
+          </Form.Group>
+
+         <div className="register-btn">
+         <button className="register" type="submit">
+            Register
+          </button>
+         </div>
+
+          <hr />
+
+          <div className="googleGithub">
+          <Button variant="primary" onClick={handleGoogleLogin}>
+            Google Login
+          </Button>
+
+          <Button variant="primary" onClick={handleGithubLogin}>
+            Github Login
+          </Button>
+          </div>
+
+          <hr />
+
+          <p>
+            Already have an account? <a href="/login">Log in here</a>.
+          </p>
+        </Form>
       </Container>
     </div>
   );

@@ -1,6 +1,8 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import "./Banner.css";
+import LazyLoad from 'react-lazy-load';
+
 
 const Banner = () => {
   return (
