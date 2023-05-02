@@ -44,3 +44,77 @@
 .btn:focus:not(:active) {
   box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
 }
+
+
+.bg-image {
+  background-image: url('https://i.ibb.co/Pz5PjHg/banner-2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+}
+
+
+.recipes{
+  text-align: center;
+  margin: 50px 0;
+  color: #34BF49;
+  font-weight: bold;
+}
+
+
+
+
+.content {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+  height: 405px;
+}
+
+.images {
+  flex: 1;
+}
+.images h5{
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 25px;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .bg-image{
+    height: 100vh;
+  }
+
+  .text,
+  .images {
+    flex: none;
+  }
+  .text{
+    height: 350px;
+  }
+
+  .images {
+    margin-top: 20px;
+  }
+
+}
