@@ -1,5 +1,4 @@
 import React from "react";
-import Background from "../../../public/images/banner-2.jpg";
 import { Container } from "react-bootstrap";
 import "./Banner.css";
 

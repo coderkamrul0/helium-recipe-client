@@ -26,6 +26,7 @@ const ChefCard = () => {
                 <p>Experience: {c.years_of_experience}</p>
                 <p>Recipes: {c.num_of_recipes}</p>
                 <p><FaRegHeart/>{c.num_of_likes}</p>
+                
                 <Link to={`/details/${c.id}`}>View Recipes</Link>
 
               </Card.Body>
