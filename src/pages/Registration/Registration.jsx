@@ -3,6 +3,8 @@ import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContent } from '../../Providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function Registration() {
@@ -41,6 +43,7 @@ export default function Registration() {
     createPasswordUser(email,password)
     .then((userCredential) => {
       const user = userCredential.user;
+      toast.success('Registration successful!');
       console.log(user);
     })
     .catch((error) => {
@@ -116,6 +119,7 @@ export default function Registration() {
                   </div>
                 </div>
               </Card.Body>
+              <ToastContainer/>
             </Card>
           </Col>
         </Row>

@@ -5,9 +5,18 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { Link } from "react-router-dom";
 import { AuthContent } from "../../../Providers/AuthProvider";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
-  const {user} = useContext(AuthContent);
+  const { user, logOut } = useContext(AuthContent);
+
+
+
+
+  const handleLogOut = () => {
+    logOut().then().catch();
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -37,9 +46,11 @@ const Header = () => {
             </Link>
           </Nav>
           <Nav>
-            {user && <p>{user.displayUser}</p> }
+            {user && <p>{user.displayUser}</p>}
             {user ? (
-              <Button variant="secondary">Logout</Button>
+              <Button onClick={handleLogOut} variant="secondary">
+                Logout
+              </Button>
             ) : (
               <Link to="/login">
                 <Button variant="secondary">Login</Button>
