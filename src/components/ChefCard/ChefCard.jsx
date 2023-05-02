@@ -16,7 +16,7 @@ const ChefCard = () => {
 
   return (
     <Container>
-      <h1 className="text-center py-5 chefCard-heading">Our Top Chefs</h1>
+      <h1 className="text-center py-5 chefCard-heading">Meet Our Great Chefs</h1>
       <Row className="" xs={1} sm={2} md={3} lg={3} xl={3}>
         {" "}
         {/* set number of cards per row */}
@@ -25,7 +25,7 @@ const ChefCard = () => {
             <Card className="mb-5 card-shadow">
               <Card.Body className="body">
                 <img className="img-fluid rounded" src={c.chef_picture} alt="" />
-                <h5 className="chef-name"> Name: {c.chef_name}</h5>
+                <h5 className="chef-name">{c.chef_name}</h5>
                 <div className="exp-rec">
                   <p>Experience: {c.years_of_experience}</p>
                   <p>Recipes: {c.num_of_recipes}</p>

@@ -10,6 +10,7 @@
 .chef-name{
     text-align: center;
     padding-top: 10px;
+    color: #22e03e;
 }
 .body{
     position: relative;
@@ -30,16 +31,15 @@
     border-radius: 50px;
 }
 .view-details-btn{
-    background-color: #34BF49;
-    font-weight: normal;
-    border-radius: 10px;
-    color: white;
-    border: none;
-    padding: 5px 10px;
+    background: transparent;
+    color: #22e03e;
+    border: 2px solid #22e03e;
+    padding: 2px 10px;
     text-decoration: none;
    }
    .view-details-btn:hover{
     background-color: #22e03e;
+    color: white;
     
    }
    .card-shadow{
