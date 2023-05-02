@@ -1,0 +1,47 @@
+.chefCard-heading{
+    color: #22e03e;
+    font-weight: bold;
+    
+}
+.exp-rec{
+    display: flex;
+    justify-content: space-around;
+}
+.chef-name{
+    text-align: center;
+    padding-top: 10px;
+}
+.body{
+    position: relative;
+}
+.like{
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    background-color: #22e03e;
+    color: white;
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 50px;
+}
+.view-details-btn{
+    background-color: #34BF49;
+    font-weight: normal;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-decoration: none;
+   }
+   .view-details-btn:hover{
+    background-color: #22e03e;
+    
+   }
+   .card-shadow{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+   }

@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Registration() {
 
-  const { createPasswordUser } = useContext(AuthContent);
+  const { createPasswordUser,googleLogin,githubLogin} = useContext(AuthContent);
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
 
@@ -54,6 +54,32 @@ export default function Registration() {
       console.log(errorCode);
       console.log(errorMessage);
     });
+  }
+
+
+
+  const handleGoogleLogin = () =>{
+    googleLogin()
+    .then(result => {
+      const user = result.user
+      navigate('/')
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+  const handleGithubLogin = () => {
+    githubLogin()
+    .then(result => {
+      const user =result.user;
+      navigate('/')
+      console.log(user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
   return (
@@ -104,9 +130,9 @@ export default function Registration() {
                         <Button variant="primary" type="submit">
                           Create Account
                         </Button>
-                        <div className='d-flex justify-content-between pt-3'>
-                            <button className='btn btn-primary'><FaGoogle/> Login With Google</button>
-                            <button className='btn btn-primary'><FaGithub/> Login With Github</button>
+                        <div className='mx-auto mt-3'>
+                            <button onClick={handleGoogleLogin} className='btn btn-primary'><FaGoogle/> Login With Google</button>
+                            <button onClick={handleGithubLogin} className='btn btn-primary'><FaGithub/> Login With Github</button>
                         </div>
                       </div>
                     </Form>

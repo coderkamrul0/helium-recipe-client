@@ -96,7 +96,7 @@ export default function Login() {
                         <Button variant="primary" type="submit">
                           Login
                         </Button>
-                        <div className='d-flex justify-content-between pt-3'>
+                        <div className='mx-auto mt-3'>
                             <button onClick={handleGoogleLogin} className='btn btn-primary'><FaGoogle/> Login With Google</button>
                             <button onClick={handleGithubLogin} className='btn btn-primary'><FaGithub/> Login With Github</button>
                         </div>

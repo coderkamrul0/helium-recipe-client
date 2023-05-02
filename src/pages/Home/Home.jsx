@@ -1,6 +1,6 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
-import ChefCard from '../../components/ChefCard';
+import ChefCard from '../../components/ChefCard/ChefCard';
 
 const Home = () => {
     return (

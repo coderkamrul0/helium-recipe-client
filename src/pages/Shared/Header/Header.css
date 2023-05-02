@@ -1,0 +1,12 @@
+.button{
+    max-width: 150px;
+    background-color: #34BF49;
+    font-weight: 600;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+   }
+   .button:hover{
+    background-color: #22e03e;
+    
+   }
