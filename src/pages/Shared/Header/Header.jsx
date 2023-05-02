@@ -48,7 +48,8 @@ const Header = () => {
             </Link>
           </Nav>
           <Nav>
-            {user && <p>{user.displayUser}</p>}
+            {user && <p>{user.displayName}</p>}
+            {user?.uid?  <img style={{height: '40px', width: '40px'}} src={user.photoURL} alt="ok"/> : <p>nai</p>}
             {user ? (
               <Button onClick={handleLogOut} variant="secondary">
                 Logout
