@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Col, Button, Row, Container, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContent } from '../../Providers/AuthProvider';
 
 
 export default function Registration() {
+
+  const { createPasswordUser } = useContext(AuthContent);
+  const [errors, setErrors] = useState([]);
+
+
+  const handleRegister = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+
+    
+
+    // Validate input
+    if(!password || !name || !email || !photo){
+      setErrors('Please fill the from')
+    }
+    if (!email.trim()) {
+      setErrors('Eamil is required')
+    }
+    if (!password.trim()) {
+      setErrors('password is required');
+    }
+    if (password.trim().length < 6) {
+      setErrors('Password must be at least 6 characters');
+    }
+    
+    
+
+    createPasswordUser(email,password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
+    });
+  }
+
   return (
     <div>
       <Container>
@@ -16,8 +62,9 @@ export default function Registration() {
                   <h3 className="fw-bold mb-2 text-center text-uppercase ">
                     Create Your Account
                   </h3>
+                  <p className='text-center text-danger'><small>{errors}</small></p>
                   <div className="mb-3">
-                    <Form>
+                    <Form onSubmit={handleRegister}>
                       <Form.Group className="mb-3" controlId="Name">
                         <Form.Label className="text-center">Name</Form.Label>
                         <Form.Control name='name' type="text" placeholder="Enter Name" />

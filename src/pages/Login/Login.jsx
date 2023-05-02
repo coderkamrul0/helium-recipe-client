@@ -6,7 +6,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 export default function Login() {
   return (
-    <div>
+    <div className='bg'>
       <Container>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
