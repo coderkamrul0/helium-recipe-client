@@ -4,6 +4,9 @@ import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./ChefDetails.css";
+import LazyLoad from "react-lazy-load";
+import { FaStar,FaStarHalf } from "react-icons/fa";
+
 
 
 const ChefDetails = () => {
@@ -18,7 +21,6 @@ const ChefDetails = () => {
   }, []);
 
   const { id } = useParams();
-  console.log(id);
   const match = chef.find((c) => c.id === Number(id));
   if(!match){
     navigate('*')
@@ -42,7 +44,9 @@ const ChefDetails = () => {
         <Container>
         <div className="content">
             <div className="images">
+              <LazyLoad>
               <img src={match?.chef_picture} alt="your-image-alt" />
+              </LazyLoad>
             </div>
             <div className="text">
             <h2>{match?.chef_name}</h2>
@@ -60,28 +64,9 @@ const ChefDetails = () => {
           </div>
         </Container>
       </div>
-      <Container>
+      <Container className="card-main-container">
         <Row>
-          {/* <Col xs={12} md={8}>
-            <img
-              src={match?.chef_picture}
-              alt={match?.chef_name}
-              className="img-fluid rounded"
-            />
-          </Col>
-          <Col xs={12} md={8}>
-            <h1>{match?.chef_name}</h1>
-            <p>{match?.description}</p>
-            <p>
-              <strong>Likes:</strong> {match?.num_of_likes}
-            </p>
-            <p>
-              <strong>Number of recipes:</strong> {match?.num_of_recipes}
-            </p>
-            <p>
-              <strong>Years of experience:</strong> {match?.years_of_experience}
-            </p>
-          </Col> */}
+          
           <div>
           <h1 className="recipes">{match?.chef_name} All Recipes</h1>
             <Row className="" xs={1} sm={2} md={3} lg={3} xl={3}>
@@ -96,18 +81,30 @@ const ChefDetails = () => {
                         src={recipe.picture}
                         alt=""
                       />
-                      <h6>Name: {recipe.recipe_name}</h6>
-                      <p>
-                        {recipe.vitamins[0]} {recipe.vitamins[1]}
-                      </p>
-                      <p>{recipe.cooking_method.slice(0, 100)}</p>
+                      <p style={{fontSize: '18px'}}><span style={{fontWeight: 'bold'}}>Name:</span> {recipe.recipe_name}</p>
+                      <div className="rating">
+                        <FaStar/>
+                        <FaStar/>
+                        <FaStar/>
+                        <FaStar/>
+                        <FaStarHalf/>
+                        {recipe.rating}
+                      </div>
+                      <p style={{fontWeight: 'bold'}}>Ingredients: </p>
+                      {
+                        recipe.ingredients.map(ingredient => <ul style={{margin: '0'}}>
+      
+                          <li>{ingredient}</li>
+                        </ul>)
+                      }
+                      <p><span style={{fontWeight: 'bold'}}>Cooking Method:</span> {recipe.cooking_method.slice(0, 100)}</p>
                       <button
                         className="btn"
                         disabled={recipe.isFavorited} // Disable the button if the recipe has already been favorited
                         onClick={() => handleAddToFavorites(index)}
                       >
                         {recipe.isFavorited
-                          ? "Added to favorites"
+                          ? "Added"
                           : "Add to favorites"}
                       </button>
                     </Card.Body>
