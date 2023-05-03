@@ -10,7 +10,7 @@ const ChefCard = () => {
   const [chef, setChef] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000")
+    fetch("https://chef-hunter-server-coderkamrul0.vercel.app/")
       .then((res) => res.json())
       .then((data) => setChef(data.slice(0, 6))) // limit to first 6 chefs
       .catch((error) => console.log(error));

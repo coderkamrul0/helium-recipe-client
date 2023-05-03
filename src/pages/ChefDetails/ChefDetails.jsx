@@ -11,7 +11,7 @@ const ChefDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/`)
+    fetch(`https://chef-hunter-server-coderkamrul0.vercel.app/`)
       .then((res) => res.json())
       .then((data) => setChef(data))
       .catch((error) => console.log(error));
