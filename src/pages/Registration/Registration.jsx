@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import './Registration.css'
 
 export default function Registration() {
-  const { createPasswordUser, googleLogin, githubLogin } =
+  const { createPasswordUser, googleLogin, githubLogin, updateUserProfile} =
     useContext(AuthContent);
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
@@ -39,8 +39,7 @@ export default function Registration() {
       .then((userCredential) => {
         const user = userCredential.user;
         navigate("/");
-        toast.success("Registration successful!");
-        console.log(user);
+        updateUserProfile(user,name,photo)
       })
       .catch((error) => {
         const errorCode = error.code;

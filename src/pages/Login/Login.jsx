@@ -26,7 +26,6 @@ export default function Login() {
       .then((result) => {
         const loggedInUser = result.user;
         navigate(from, { replace: true });
-        toast.success("Login successful!");
       })
       .catch((error) => {
         console.log(error);

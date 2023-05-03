@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import PrivateRoutes from "./PrivateRoutes";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <PrivateRoutes><ChefDetails/></PrivateRoutes>
+            },
+            {
+                path: 'blog',
+                element: <Blog/>
             },
             {
                 path: '*',
