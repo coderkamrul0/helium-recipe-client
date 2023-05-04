@@ -11,6 +11,7 @@ const Home = () => {
             <ChefCard/>
             <OurValue/>
             <Testimonial/>
+            
         </div>
     );
 };
