@@ -26,7 +26,7 @@ const ChefCard = () => {
           <Col key={index}>
             <Card className="mb-5 card-shadow">
               <Card.Body className="body">
-                <LazyLoad>
+                <LazyLoad height={260} placeholder={<img src={c.chef_picture} alt="Chef Photo" />}>
                 <img className="img-fluid rounded" src={c.chef_picture} alt="" />
                 </LazyLoad>
                 <h5 className="chef-name">{c.chef_name}</h5>

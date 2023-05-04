@@ -81,6 +81,7 @@ const ChefDetails = () => {
                         src={recipe.picture}
                         alt=""
                       />
+                      
                       <p style={{fontSize: '18px'}}><span style={{fontWeight: 'bold'}}>Name:</span> {recipe.recipe_name}</p>
                       <div className="rating">
                         <FaStar/>
