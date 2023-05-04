@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 import "./ChefDetails.css";
 import LazyLoad from "react-lazy-load";
 import { FaStar,FaStarHalf } from "react-icons/fa";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 
 
 
@@ -87,11 +89,7 @@ const ChefDetails = () => {
                       
                       <p style={{fontSize: '18px'}}><span style={{fontWeight: 'bold'}}>Name:</span> {recipe.recipe_name}</p>
                       <div className="rating">
-                        <FaStar/>
-                        <FaStar/>
-                        <FaStar/>
-                        <FaStar/>
-                        <FaStarHalf/>
+                      <Rating style={{ maxWidth: 50 }} value={Rating} readOnly />
                         {recipe.rating}
                       </div>
                       <p style={{fontWeight: 'bold'}}>Ingredients: </p>
