@@ -22,33 +22,29 @@ const Footer = () => {
             <a href="#">Blog</a>
 
 
-            <a href="#">About</a>
-
-            <a href="#">Faq</a>
-
-            <a href="#">Contact</a>
+            
           </p>
 
-          <p className="footer-company-name">Company Name © 2015</p>
+          <p style={{color: 'white'}} className="footer-company-name">Helium Dine Copyright © 2023</p>
         </div>
 
         <div className="footer-center">
           <div>
             <i className="fa fa-map-marker"></i>
             <p>
-              <span>444 S. Cedros Ave</span> Solana Beach, California
+              <span>Level-4, 34, Awal Centre </span> S Banani, Dhaka
             </p>
           </div>
 
           <div>
             <i className="fa fa-phone"></i>
-            <p>+1.555.555.5555</p>
+            <p>+88 017 1111 2222</p>
           </div>
 
           <div>
             <i className="fa fa-envelope"></i>
             <p>
-              <a href="mailto:support@company.com">support@company.com</a>
+              <a href="mailto:heliumdine@company.com">heliumdine@company.com</a>
             </p>
           </div>
         </div>
@@ -56,8 +52,7 @@ const Footer = () => {
         <div className="footer-right">
           <p className="footer-company-about">
             <span>About the company</span>
-            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-            euismod convallis velit, eu auctor lacus vehicula sit amet.
+            Helium dine . Most popular Recipes provider in world. We have world best Chefs and best Recipes.So stay with us.
           </p>
 
           <div className="footer-icons">

@@ -29,26 +29,30 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
-            <Link
+            <NavLink
+              className={({isActive}) =>isActive ? 'text-primary': ''}
               style={{
                 textDecoration: "none",
                 color: "gray",
                 margin: "0 10px",
+                fontWeight: "bold"
               }}
               to="/"
             >
               Home
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
+            className={({isActive}) =>isActive ? 'text-primary': ''}
               style={{
                 textDecoration: "none",
                 color: "gray",
                 margin: "0 10px",
+                fontWeight: 'bold'
               }}
               to="/blog"
             >
               Blog
-            </Link>
+            </NavLink>
           </Nav>
           <Nav>
             {user?.uid && (
