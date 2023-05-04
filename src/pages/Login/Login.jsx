@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContent } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -29,6 +28,7 @@ export default function Login() {
       })
       .catch((error) => {
         console.log(error);
+        toast.error("Invalid email or password. Please try again.");
       });
   };
 
@@ -85,18 +85,19 @@ export default function Login() {
 
           <div className="googleGithub">
             <Button variant="primary" onClick={handleGoogleLogin}>
-              Google Login
+              <FaGoogle/> Google Login
             </Button>
 
             <Button variant="primary" onClick={handleGithubLogin}>
-              Github Login
+              <FaGithub/> Github Login
             </Button>
           </div>
 
           <hr />
+          <ToastContainer/>
 
           <p>
-            Dont't have an account? <a href="/register">Register here</a>.
+            Dont't have an account? <Link to="/register">Register here</Link>.
           </p>
         </Form>
       </Container>

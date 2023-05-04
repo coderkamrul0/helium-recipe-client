@@ -125,18 +125,18 @@ export default function Registration() {
 
           <div className="googleGithub">
           <Button variant="primary" onClick={handleGoogleLogin}>
-            Google Login
+            <FaGoogle/>Google Login
           </Button>
 
           <Button variant="primary" onClick={handleGithubLogin}>
-            Github Login
+            <FaGithub/>Github Login
           </Button>
           </div>
 
           <hr />
 
           <p>
-            Already have an account? <a href="/login">Log in here</a>.
+            Already have an account? <Link to="/login">Log in here</Link>.
           </p>
         </Form>
       </Container>

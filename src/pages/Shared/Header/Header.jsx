@@ -20,12 +20,11 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="white" variant="light">
       <Container>
-        <Navbar.Brand
+        <Link style={{textDecoration: 'none'}} to='/'><Navbar.Brand
           style={{ color: "#34BF49", fontWeight: "bold", fontSize: "25px" }}
-          href="/"
         >
           Helium
-        </Navbar.Brand>
+        </Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mx-auto">
