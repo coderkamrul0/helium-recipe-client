@@ -21,10 +21,12 @@ const AuthProvider = ({children}) => {
     }
     const googleProvider = new GoogleAuthProvider();
     const googleLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     const githubProvider = new GithubAuthProvider();
     const githubLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, githubProvider);
     }
     const updateUserProfile = (user, name, photo) => {

@@ -118,7 +118,7 @@ const ChefDetails = () => {
             </Row>
           </div>
         </Row>
-        <Link to="/">Back to Home</Link>
+        <Link to="/"><button>Back to Home</button></Link>
         <ToastContainer />
       </Container>
     </div>
