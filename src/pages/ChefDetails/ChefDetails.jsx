@@ -9,9 +9,10 @@ import { FaStar,FaStarHalf } from "react-icons/fa";
 
 
 
+
 const ChefDetails = () => {
   const [chef, setChef] = useState([]);
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch(`https://chef-hunter-server-coderkamrul0.vercel.app/`)
@@ -25,6 +26,7 @@ const ChefDetails = () => {
   if(!match){
     navigate('*')
   }
+  
 
   const handleAddToFavorites = (index) => {
     // Update the state of the clicked recipe card to indicate that it has been favorited
@@ -51,14 +53,15 @@ const ChefDetails = () => {
             <div className="text">
             <h2>{match?.chef_name}</h2>
             <p>{match?.description}</p>
+            
             <p>
               <strong>Likes:</strong> {match?.num_of_likes}
             </p>
             <p>
-              <strong>Number of recipes:</strong> {match?.num_of_recipes}
+              <strong>Total Recipes:</strong> {match?.num_of_recipes}
             </p>
             <p>
-              <strong>Years of experience:</strong> {match?.years_of_experience}
+              <strong>Experience:</strong> {match?.years_of_experience}
             </p>
             </div>
           </div>
