@@ -81,11 +81,14 @@ const ChefDetails = () => {
                 <Col key={index}>
                   <Card className="mb-5">
                     <Card.Body>
+                      <LazyLoad>
                       <img
                         className="img-fluid rounded"
                         src={recipe.picture}
                         alt=""
                       />
+                      
+                      </LazyLoad>
                       
                       <p style={{fontSize: '18px'}}><span style={{fontWeight: 'bold'}}>Name:</span> {recipe.recipe_name}</p>
                       <div className="rating">
