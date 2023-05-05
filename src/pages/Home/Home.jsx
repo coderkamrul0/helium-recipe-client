@@ -7,11 +7,11 @@ import OurValue from '../../components/OurValue/OurValue';
 const Home = () => {
     return (
         <div>
+            
             <Banner/>
             <ChefCard/>
             <OurValue/>
             <Testimonial/>
-            
         </div>
     );
 };

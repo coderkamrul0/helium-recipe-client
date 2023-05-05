@@ -38,6 +38,7 @@
   
   .testimonials-clean .item {
     margin-bottom:32px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
   
   @media (min-width:768px) {
@@ -65,8 +66,8 @@
   }
   
   .testimonials-clean .item .author {
-    margin-top:28px;
-    padding-left:25px;
+    margin-top:10px;
+    padding-left:10px;
   }
   
   .testimonials-clean .item .name {

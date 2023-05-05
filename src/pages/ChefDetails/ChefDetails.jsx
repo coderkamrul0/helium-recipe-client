@@ -38,7 +38,7 @@ const ChefDetails = () => {
     ].isFavorited = true;
     setChef(updatedChef);
 
-    // Show a toast message indicating that the recipe has been added to favorites
+    // Show a toast message indicating that the recipe has been  added to favorites
     toast.success("Recipe added to favorites!");
   };
 
@@ -63,7 +63,7 @@ const ChefDetails = () => {
               <strong>Total Recipes:</strong> {match?.num_of_recipes}
             </p>
             <p>
-              <strong>Experience:</strong> {match?.years_of_experience}
+              <strong>Experience:</strong> {match?.years_of_experience} Years
             </p>
             </div>
           </div>
