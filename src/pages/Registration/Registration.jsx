@@ -12,6 +12,11 @@ export default function Registration() {
     useContext(AuthContent);
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  }
 
   const handleRegister = (event) => {
     event.preventDefault();

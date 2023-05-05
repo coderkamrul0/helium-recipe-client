@@ -15,6 +15,11 @@ import '@smastrom/react-rating/style.css'
 const ChefDetails = () => {
   const [chef, setChef] = useState([]);
   const navigate = useNavigate()
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore(!showMore);
+  }
 
   useEffect(() => {
     fetch(`https://chef-hunter-server-coderkamrul0.vercel.app/`)
