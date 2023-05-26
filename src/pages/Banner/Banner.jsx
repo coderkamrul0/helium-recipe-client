@@ -18,6 +18,7 @@ const Banner = () => {
           <div className="banner-img">
             <img className="image" src="https://i.ibb.co/Tcz3822/dish.png" alt="" />
           </div>
+          
         </div>
       </Container>
     </div>
